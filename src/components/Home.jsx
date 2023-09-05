@@ -6,6 +6,7 @@ const Form = () => {
 	const [todos , setTodos] = useState(storedTodos || []);
 	const [newTodo , setNewTodo] = useState("");
 
+
 	const handleSubmit = (e) => {
 		if(newTodo === "")
 		{
@@ -30,24 +31,23 @@ const Form = () => {
 
 
 
-	// localStorage.clear()
-	console.log(localStorage);
 	return ( <div>
-		<form onSubmit={handleSubmit}>
-		<input
-			type="text"
-			placeholder="Enter the todo"
-			value = {newTodo}
-			onChange = {(e) =>  setNewTodo(e.target.value)}
-		/>
-		<button>Add New Todo Item</button>
-		<p>{newTodo}</p>
-		</form>
+			<h1>Todo List</h1>
+			<div className='form-container'>
+				<form className="form" onSubmit={handleSubmit}>
+				<input
+					className='input-field'
+					type="text"
+					placeholder="Enter the todo"
+					value = {newTodo}
+					onChange = {(e) =>  setNewTodo(e.target.value)}
+				/>
+				<button className='add-button'>Add New Todo Item</button>
+				</form>
+			</div>
 
-		<div>
 			<TodoList todos = {todos} setTodos={setTodos}></TodoList>
-		</div>
 	</div> );
 }
- 
+
 export default Form;
